@@ -11,7 +11,7 @@ public class MarketLatency extends ModelBase{
     private double latency;
 
     public MarketLatency(String marketCode, DateTime timestamp, double latency) {
-        super("marketBestPrice",timestamp);
+        super("marketLatency",timestamp);
         this.marketCode = marketCode;
         this.timestamp = timestamp;
         this.latency = latency;

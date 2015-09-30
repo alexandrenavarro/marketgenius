@@ -7,17 +7,17 @@ import org.joda.time.DateTime;
  */
 public class MarketBestPrice extends ModelBase{
     private String marketCode;
-    private DateTime timestamp;
     private String productCode;
     private String type;
+    private double price;
     private int order;
 
-    public MarketBestPrice(String marketCode, DateTime timestamp, String productCode, String type, int order) {
+    public MarketBestPrice(String marketCode, DateTime timestamp, String productCode, String type, double price, int order) {
         super("marketBestPrice",timestamp);
         this.marketCode = marketCode;
-        this.timestamp = timestamp;
         this.productCode = productCode;
         this.type = type;
+        this.price = price;
         this.order = order;
     }
 
@@ -27,14 +27,6 @@ public class MarketBestPrice extends ModelBase{
 
     public void setMarketCode(String marketCode) {
         this.marketCode = marketCode;
-    }
-
-    public DateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(DateTime timestamp) {
-        this.timestamp = timestamp;
     }
 
     public String getProductCode() {
@@ -59,5 +51,13 @@ public class MarketBestPrice extends ModelBase{
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
