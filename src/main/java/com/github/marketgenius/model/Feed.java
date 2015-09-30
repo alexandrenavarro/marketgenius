@@ -1,4 +1,4 @@
-package com.github.marketgenius;
+package com.github.marketgenius.model;
 
 import java.time.LocalDateTime;
 
