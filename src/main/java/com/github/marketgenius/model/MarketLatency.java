@@ -8,13 +8,15 @@ import org.joda.time.DateTime;
 public class MarketLatency extends ModelBase{
     private String marketCode;
     private DateTime timestamp;
+    private String order;
     private double latency;
 
-    public MarketLatency(String marketCode, DateTime timestamp, double latency) {
+    public MarketLatency(String marketCode, DateTime timestamp, double latency, String order) {
         super("marketLatency",timestamp);
         this.marketCode = marketCode;
         this.timestamp = timestamp;
         this.latency = latency;
+        this.order = order;
     }
 
     public String getMarketCode() {
@@ -39,5 +41,13 @@ public class MarketLatency extends ModelBase{
 
     public void setLatency(double latency) {
         this.latency = latency;
+    }
+
+    public String getOrder() {
+        return order;
+    }
+
+    public void setOrder(String order) {
+        this.order = order;
     }
 }

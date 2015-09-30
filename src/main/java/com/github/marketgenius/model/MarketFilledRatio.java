@@ -7,13 +7,13 @@ import org.joda.time.DateTime;
  */
 public class MarketFilledRatio extends ModelBase{
     private String marketCode;
-    private String productCode;
-    private double ratio;
+    private String order;
+    private int ratio;
 
-    public MarketFilledRatio(String marketCode, DateTime timestamp, String productCode, double ratio) {
+    public MarketFilledRatio(String marketCode, DateTime timestamp, String order, int ratio) {
         super("marketFilledRatio",timestamp);
         this.marketCode = marketCode;
-        this.productCode = productCode;
+        this.order = order;
         this.ratio = ratio;
     }
 
@@ -25,19 +25,19 @@ public class MarketFilledRatio extends ModelBase{
         this.marketCode = marketCode;
     }
 
-    public String getProductCode() {
-        return productCode;
+    public String getOrder() {
+        return order;
     }
 
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
+    public void setOrder(String order) {
+        this.order = order;
     }
 
     public double getRatio() {
         return ratio;
     }
 
-    public void setRatio(double ratio) {
+    public void setRatio(int ratio) {
         this.ratio = ratio;
     }
 }
