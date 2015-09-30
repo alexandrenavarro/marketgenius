@@ -99,12 +99,7 @@ angular.module('MarketApp')
                 {
                     name: 'Market 4'
                 }],
-              chartData: {
-                  options: {
-                      chart: {
-                          type: 'line'
-                      }
-                  },
+              chartData: {                  
                   series: [{
                       name: 'Market 1',
                       data: [10, 15, 12, 8, 7]
