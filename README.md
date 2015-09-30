@@ -10,4 +10,6 @@ type:Feed
 
 type:marketBestPrice AND rank:1 AND feedCode:feedcode1 AND side:Bid
 
+type:marketBestPrice AND side:Bid type:marketBestPrice AND rank:1 AND feedCode:feedcode2
+
 
