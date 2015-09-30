@@ -77,7 +77,7 @@ angular.module('MarketApp')
 
             priorityDataService.retriveData($scope.currentCriteria, 
                 function (priorityData) {
-                    $scope.priorityList = priorityData.priorityList;
+                    $scope.ranks = priorityData.ranks;
                     $scope.highchartsNG = priorityData.chartData;
                     $scope.highchartsNG.options = {
                         chart: {
@@ -121,7 +121,7 @@ angular.module('MarketApp')
                   latencyWeight: 0,
                   filledRatioWeight: 0
               },
-              timestampDuration: 'Last Minute'
+              timestampDuration: 'Last Hour'
           }
       };    
 
@@ -175,7 +175,7 @@ angular.module('MarketApp')
       };
 
       this.getTimeStampReferential = function () {
-          return ['Last Minute', 'Last Hour', 'Last Day'];
+          return ['Last Hour', 'Last Day', 'Last Week'];
       };
       
     })
