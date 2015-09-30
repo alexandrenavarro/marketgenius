@@ -59,10 +59,14 @@ angular.module('MarketApp')
             var retriveData = priorityDataService.retriveData($scope.currentCriteria);
             $scope.priorityList = retriveData.priorityList;
             $scope.highchartsNG = retriveData.chartData;
+            $scope.highchartsNG.options = {
+                   chart: {
+                    type: 'line'
+                }
+            };
             $('#priorityData').show();
         };
         $('#priorityData').hide();
-        //$scope.retreivePriorityData();
 
         $scope.timeStampReferential = priorityDataService.getTimeStampReferential();        
     }   
@@ -84,10 +88,16 @@ angular.module('MarketApp')
       this.retriveData = function (priorityCriteria) {
           return {
               priorityList: [{
-                  name: 'Market1'
+                  name: 'Market 1'
               },
                 {
-                    name: 'Market2'
+                    name: 'Market 2'
+                },
+                {
+                    name: 'Market 3'
+                },
+                {
+                    name: 'Market 4'
                 }],
               chartData: {
                   options: {
