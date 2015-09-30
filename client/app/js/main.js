@@ -78,7 +78,7 @@ angular.module('MarketApp')
                   filledRatioWeight: 0
               },
               timestampDuration: 'Last Minute'
-          }
+          };
       };    
 
       this.retriveData = function (priorityCriteria) {
