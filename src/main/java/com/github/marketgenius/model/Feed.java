@@ -19,14 +19,7 @@ import net.karneim.pojobuilder.GeneratePojoBuilder;
 public final class Feed extends ModelBase implements Comparable<Feed> {
 	
 	
-	public final static ObjectMapper MAPPER = new ObjectMapper();
-	
-	static {
 
-		MAPPER.registerModule(new JodaModule());
-		MAPPER.configure(com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-
-	}
 	
 	
 	private long feedId;
@@ -93,14 +86,7 @@ public final class Feed extends ModelBase implements Comparable<Feed> {
 
 
 
-	@Override
-	public String toString() {
-		try {
-			return MAPPER.writeValueAsString(this);
-		} catch (JsonProcessingException e) {
-			return "{}";
-		}		
-	}
+
 
 
 

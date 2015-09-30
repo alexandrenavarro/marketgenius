@@ -2,6 +2,10 @@ package com.github.marketgenius.model;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
+
 import org.joda.time.DateTime;
 
 import java.util.UUID;
@@ -10,6 +14,16 @@ import java.util.UUID;
  * Created by Stephane on 30/09/2015.
  */
 public class ModelBase {
+	
+	public final static ObjectMapper MAPPER = new ObjectMapper();
+	
+	static {
+
+		MAPPER.registerModule(new JodaModule());
+		MAPPER.configure(com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+
+	}
+	
     private final String id;
     private String type;
     private DateTime timestamp;
@@ -40,4 +54,13 @@ public class ModelBase {
     public String getId() {
         return id;
     }
+    
+	@Override
+	public String toString() {
+		try {
+			return MAPPER.writeValueAsString(this);
+		} catch (JsonProcessingException e) {
+			return "{}";
+		}		
+	}
 }
