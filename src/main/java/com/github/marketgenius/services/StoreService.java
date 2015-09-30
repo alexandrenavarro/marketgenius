@@ -1,6 +1,7 @@
 package com.github.marketgenius.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
 import com.github.marketgenius.model.ModelBase;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.index.IndexRequestBuilder;
@@ -33,7 +34,7 @@ public class StoreService {
         this.client = transportClient;
 
         this.mapper = new ObjectMapper();
-       // mapper.registerModule(new JodaModule());
+        mapper.registerModule(new JodaModule());
         mapper.configure(com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         this.logger = LoggerFactory.getLogger("StoreService");
 
