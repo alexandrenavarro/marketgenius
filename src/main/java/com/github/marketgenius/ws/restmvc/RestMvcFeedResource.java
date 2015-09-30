@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.marketgenius.model.Feed;
-import com.github.marketgenius.ws.FeedResource;
+
 
 @RestController
 @RequestMapping(value = "/feed")
-public class RestMvcFeedResource implements FeedResource {
+public class RestMvcFeedResource  {
 
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(RestMvcFeedResource.class);

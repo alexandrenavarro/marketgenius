@@ -1,6 +1,9 @@
 package com.github.marketgenius.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.marketgenius.model.ModelBase;
+import org.elasticsearch.action.bulk.BulkRequestBuilder;
+import org.elasticsearch.action.index.IndexRequestBuilder;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
@@ -33,6 +36,26 @@ public class StoreService {
        // mapper.registerModule(new JodaModule());
         mapper.configure(com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         this.logger = LoggerFactory.getLogger("StoreService");
+
+    }
+
+    private  <T extends ModelBase> void storeMultiple(List<T> items) {
+        BulkRequestBuilder bulkRequest = client.prepareBulk();
+
+        for (T item : items) {
+            String itemType = item.getType();
+
+            try {
+                String index = String.format("%s-%s", "logstash", item.getTimestamp().toString("yyyy.MM.dd"));
+                String itemAsString = mapper.writeValueAsString(item);
+                IndexRequestBuilder saveRequest = client.prepareIndex(index, itemType, item.getId());
+                bulkRequest.add(saveRequest.setSource(itemAsString));
+                bulkRequest.execute().get();
+            } catch (Exception error) {
+                logger.error(error.getMessage(), error);
+            }
+        }
+
 
     }
 }

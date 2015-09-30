@@ -5,12 +5,13 @@ import org.joda.time.DateTime;
 /**
  * Created by Stephane on 30/09/2015.
  */
-public class MarketLatency {
+public class MarketLatency extends ModelBase{
     private String marketCode;
     private DateTime timestamp;
     private double latency;
 
     public MarketLatency(String marketCode, DateTime timestamp, double latency) {
+        super("marketBestPrice",timestamp);
         this.marketCode = marketCode;
         this.timestamp = timestamp;
         this.latency = latency;

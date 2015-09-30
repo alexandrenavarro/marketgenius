@@ -5,16 +5,19 @@ import org.joda.time.DateTime;
 /**
  * Created by Stephane on 30/09/2015.
  */
-public class MarketBestPrice {
+public class MarketBestPrice extends ModelBase{
     private String marketCode;
     private DateTime timestamp;
     private String productCode;
+    private String type;
     private int order;
 
-    public MarketBestPrice(String marketCode, DateTime timestamp, String productCode, int order) {
+    public MarketBestPrice(String marketCode, DateTime timestamp, String productCode, String type, int order) {
+        super("marketBestPrice",timestamp);
         this.marketCode = marketCode;
         this.timestamp = timestamp;
         this.productCode = productCode;
+        this.type = type;
         this.order = order;
     }
 
@@ -50,5 +53,11 @@ public class MarketBestPrice {
         this.order = order;
     }
 
+    public String getType() {
+        return type;
+    }
 
+    public void setType(String type) {
+        this.type = type;
+    }
 }

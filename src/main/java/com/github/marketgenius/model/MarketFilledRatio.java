@@ -5,13 +5,14 @@ import org.joda.time.DateTime;
 /**
  * Created by Stephane on 30/09/2015.
  */
-public class MarketFilledRatio {
+public class MarketFilledRatio extends ModelBase{
     private String marketCode;
     private DateTime timestamp;
     private String productCode;
     private float ratio;
 
     public MarketFilledRatio(String marketCode, DateTime timestamp, String productCode, float ratio) {
+        super("marketBestPrice",timestamp);
         this.marketCode = marketCode;
         this.timestamp = timestamp;
         this.productCode = productCode;
