@@ -2,3 +2,6 @@
 target/
 marketgenius.iml
 data/
+/.settings/
+/.classpath
+/.project
