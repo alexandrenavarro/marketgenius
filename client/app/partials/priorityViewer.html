@@ -1,0 +1,55 @@
+<div class="row">
+    <div id="weightageErrorDiv" style="display:none" class="alert alert-danger" role="alert">Total Weigtage of the criteria should be 1</div>
+    <div id="dataRetrivalError" style="display:none" class="alert alert-danger" role="alert">Error occured while retreiving priority information</div>
+    <div class="row rcorners1">         
+    <form class="navbar-form navbar-left" role="search">
+  <div class="row form-group">
+      <div class="col-md-2">
+      <label class="weightageLabel">Best Price : </label> 
+      <input type="number" class="form-control" max="1" min="0" step="0.1" ng-model="currentCriteria.weightage.bestPriceWeight"/>
+          </div>
+      <div  class="col-md-2">
+      <label class="weightageLabel">Filled Ratio : </label> 
+      <input  type="number" class="form-control" max="1" min="0" step="0.1""  ng-model="currentCriteria.weightage.filledRatioWeight">
+          </div>
+      <div  class="col-md-2">
+      <label class="weightageLabel">Latency: </label> 
+      <input  type="number" class="form-control" max="1" min="0" step="0.1"  ng-model="currentCriteria.weightage.latencyWeight"">
+          </div>
+      <div  class="col-md-2">
+      <label class="weightageLabel">TimeStamp: </label> 
+          <select style="height:2.5em"  ng-model="currentCriteria.timestampDuration">
+                <option 
+           ng-repeat="timeStamp in timeStampReferential" 
+           value="{{timeStamp}}"
+       >
+{{timeStamp}}
+       </option>
+          </select>
+          </div>
+  </div>       
+  <button type="submit" class="btn btn-default btn-lg" ng-click="saveWeightage()">Submit</button>
+</form>
+        </div>
+   
+</div>
+
+<div id="priorityData" class="row priorityData">    
+    <h2><span class="presentation">Prioritized Market</span></h2>
+    <div class="row">
+    <div class="col-md-4">
+        <ul class="list-group" >
+  <li ng-repeat="priority in priorityList" class="list-group-item">{{priority.name}}</li>
+</ul>
+    </div>
+    <div class="col-md-8">
+
+       <highchart id="chart1" config="highchartsNG"></highchart> 
+
+       <!-- <highchart id="Highchart1" series="highchartsNG.series" title="highchartsNG.title" options="highchartsNG.options">
+
+        </highchart>-->
+
+    </div>
+        </div>
+</div>
