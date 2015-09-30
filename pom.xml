@@ -55,13 +55,6 @@
 			<artifactId>spring-boot-starter-data-rest</artifactId>
 			<version>${springBootVersion}</version>
 		</dependency>
-		
-		
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter-data-elasticsearch</artifactId>-->
-			<!--<version>${springBootVersion}</version>-->
-		<!--</dependency>-->
 
 		<!-- guava -->
 		<dependency>
@@ -137,7 +130,9 @@
             <version>2.3.3</version>
         </dependency>
 
-    </dependencies>
+
+
+	</dependencies>
 	<build>
 		<defaultGoal>clean install</defaultGoal>
 		<plugins>
