@@ -5,3 +5,11 @@ data/
 /.settings/
 /.classpath
 /.project
+client/app/bower_components/
+client/node_modules/
+client/dist/
+src/main/resources/static/bower_components/angular-animate/.bower.json
+src/main/resources/static/bower_components/
+src/main/resources/static/partials/partial1.html
+src/main/resources/static/partials/partial2.html
+src/main/resources/static/partials/priorityViewer.html
