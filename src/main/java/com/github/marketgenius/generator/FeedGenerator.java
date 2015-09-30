@@ -23,7 +23,7 @@ public class FeedGenerator {
 		
 		for (long currentTime = startTime; currentTime < endTime; currentTime = currentTime + feedGeneratorParameter.getTickEveryNMs()) {
 			final Feed feed = new Feed(new DateTime(currentTime));
-			feed.setMarket(feedGeneratorParameter.getMarket());
+			feed.setMarketCode(feedGeneratorParameter.getMarket());
 			feed.setFeedCode(feedGeneratorParameter.getFeedCode());
 			feed.setBid1(feedGeneratorParameter.getGeneratedBid());
 			feed.setAsk1(feedGeneratorParameter.getGeneratedAsk());

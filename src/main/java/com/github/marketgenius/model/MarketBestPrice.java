@@ -8,17 +8,17 @@ import org.joda.time.DateTime;
 public class MarketBestPrice extends ModelBase{
     private String marketCode;
     private String side;
-    private String product;
+    private String feedCode;
     private double price;
-    private int order;
+    private int rank;
 
     public MarketBestPrice(String marketCode, DateTime timestamp, String product, String side, double price, int order) {
             super("marketBestPrice",timestamp);
         this.marketCode = marketCode;
         this.side = side;
-        this.product = product;
+        this.feedCode = product;
         this.price = price;
-        this.order = order;
+        this.rank = order;
     }
 
     public String getMarketCode() {
@@ -37,23 +37,24 @@ public class MarketBestPrice extends ModelBase{
         this.side = side;
     }
 
-    public int getOrder() {
-        return order;
-    }
 
-    public void setOrder(int order) {
-        this.order = order;
-    }
+    public String getFeedCode() {
+		return feedCode;
+	}
 
-    public String getProduct() {
-        return product;
-    }
+	public void setFeedCode(String feedCode) {
+		this.feedCode = feedCode;
+	}
 
-    public void setProduct(String product) {
-        this.product = product;
-    }
+	public int getRank() {
+		return rank;
+	}
 
-    public double getPrice() {
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
+
+	public double getPrice() {
         return price;
     }
 

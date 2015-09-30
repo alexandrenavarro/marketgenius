@@ -25,7 +25,7 @@ public class FeedGeneratorMain {
 		final FeedGenerator feedGenerator = new FeedGenerator();
 
 		final int nbMarket = 5;
-		final int nbFeedCodeByMarket = 2;
+		final int nbFeedCodeByMarket = 4;
 		final String fromDate = "2015-09-30T09:00:00";
 		final String toDate = "2015-09-30T17:30:00";
 		final long startTime = new DateTime(fromDate).getMillis();
@@ -44,11 +44,11 @@ public class FeedGeneratorMain {
 				final FeedGeneratorParameter feedGeneratorParameter = new FeedGeneratorParameter();
 				feedGeneratorParameter.setFromDateTime(new DateTime(fromDate));
 				feedGeneratorParameter.setToDateTime(new DateTime(toDate));
-				feedGeneratorParameter.setTickEveryNMs(60 * 60000 / marketId);
+				feedGeneratorParameter.setTickEveryNMs((10 *  60000) / marketId);
 				feedGeneratorParameter.setFeedCode(feedCode);
 				feedGeneratorParameter.setMarket(market);
 				feedGeneratorParameter.setDefaultPrice(100);
-				feedGeneratorParameter.setMaxPriceTickShift(marketId * 2);
+				//feedGeneratorParameter.setMaxPriceTickShift( marketId * 2);
 
 				final List<Feed> feedList = feedGenerator.generateFeeds(feedGeneratorParameter);
 				
@@ -64,7 +64,7 @@ public class FeedGeneratorMain {
 			
 			
 			
-			for (long currentTime = startTime; currentTime < endTime; currentTime = currentTime + 3600000) {
+			for (long currentTime = startTime; currentTime < endTime; currentTime = currentTime + 10 * 60000) {
 				List<Feed> orderedFeedList = new ArrayList<>();
 				
 				for (int marketId = 1; marketId <= nbMarket; marketId++) {
@@ -104,7 +104,7 @@ public class FeedGeneratorMain {
 						previousBid = feed.getBid1();
 						bidRank++;
 					}
-					final MarketBestPrice marketBestPrice = new MarketBestPrice(feed.getMarket(), new DateTime(currentTime), feedCode, "Bid", feed.getBid1(), bidRank);
+					final MarketBestPrice marketBestPrice = new MarketBestPrice(feed.getMarketCode(), new DateTime(currentTime), feedCode, "Bid", feed.getBid1(), bidRank);
 					marketBestPriceList.add(marketBestPrice);
 					
 				}
@@ -141,7 +141,7 @@ public class FeedGeneratorMain {
 						previousAsk = feed.getAsk1();
 						askRank++;
 					}
-					final MarketBestPrice marketBestPrice = new MarketBestPrice(feed.getMarket(), new DateTime(currentTime), feedCode, "Ask", feed.getAsk1(), askRank);
+					final MarketBestPrice marketBestPrice = new MarketBestPrice(feed.getMarketCode(), new DateTime(currentTime), feedCode, "Ask", feed.getAsk1(), askRank);
 					marketBestPriceList.add(marketBestPrice);
 				}
 				
@@ -149,9 +149,10 @@ public class FeedGeneratorMain {
 			marketFeedMap.clear();
 			
 		}
+		LOGGER.info("MarketBestPrice is generated.");
 		feedWriter.writeToFile(marketBestPriceList, new File("target/aaMarketBestPrice.txt"));
 		feedWriter.writeToElasticSearch(marketBestPriceList);
-	
+		
 	}
 	
 	// Refactor it

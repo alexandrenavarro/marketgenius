@@ -17,7 +17,7 @@ public final class Feed extends ModelBase implements Comparable<Feed> {
 	
 	private long feedId;
 	private String feedCode;
-	private String market;
+	private String marketCode;
 	//private DateTime timestamp;
 
 	private Integer qtyAsk1;
@@ -101,14 +101,14 @@ public final class Feed extends ModelBase implements Comparable<Feed> {
 
 
 
-	public String getMarket() {
-		return market;
+	public String getMarketCode() {
+		return marketCode;
 	}
 
 
 
-	public void setMarket(String market) {
-		this.market = market;
+	public void setMarketCode(String market) {
+		this.marketCode = market;
 	}
 
 
