@@ -13,7 +13,7 @@ public class MarketBestPrice extends ModelBase{
     private int order;
 
     public MarketBestPrice(String marketCode, DateTime timestamp, String product, String side, double price, int order) {
-        super("marketBestPrice",timestamp);
+            super("marketBestPrice",timestamp);
         this.marketCode = marketCode;
         this.side = side;
         this.product = product;

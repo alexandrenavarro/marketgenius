@@ -4,13 +4,11 @@ import com.github.marketgenius.model.MarketBestPrice;
 import com.github.marketgenius.model.MarketFilledRatio;
 import com.github.marketgenius.model.MarketLatency;
 import com.github.marketgenius.services.StoreService;
+import junit.framework.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by Stephane on 30/09/2015.
@@ -72,6 +70,34 @@ public class MarketCriteriaFeeder {
         {
             generateDataForLatency(service, ratioAlea, index, latencies);
         }
+    }
+
+    @Test
+    public void testLatencyRetrieval() throws Exception {
+        List<String> servers = new ArrayList<>();
+        servers.add("localhost:9300");
+        StoreService service  = new StoreService("marketGenius",servers);
+        Map<String,Double> data = service.fetchLatencyData(6);
+        Assert.assertTrue(data != null );
+    }
+
+    @Test
+    public void testFilledRatioRetrieval() throws Exception {
+        List<String> servers = new ArrayList<>();
+        servers.add("localhost:9300");
+        StoreService service  = new StoreService("marketGenius",servers);
+        Map<String,Double> data = service.fetchFilledRatioData(6);
+        Assert.assertTrue(data != null );
+    }
+
+
+    @Test
+    public void testBestPriceRetrieval() throws Exception {
+        List<String> servers = new ArrayList<>();
+        servers.add("localhost:9300");
+        StoreService service  = new StoreService("marketGenius",servers);
+        Map<String,Double> data = service.fetchBestPriceData(6);
+        Assert.assertTrue(data != null );
     }
 
     private void generateDataForLatency(StoreService service, Random ratioAlea, int index, List<MarketLatency> latencies) {

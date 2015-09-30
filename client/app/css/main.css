@@ -1,0 +1,21 @@
+.rcorners1 {
+    border-radius: 10px;
+    background: #d43e3e;
+    padding: 0.3em;   
+    margin: 1.2em; 
+}
+
+.weightageLabel {
+    color: white;
+}
+
+.priorityData {
+    border-radius: 10px;
+    background: #f5eeee;
+    padding: 0.3em;   
+    margin: 0.3em; 
+}
+
+.title {
+    color:#00b9e4 
+}
