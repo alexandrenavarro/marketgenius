@@ -1,21 +1,14 @@
 package com.github.marketgenius.model;
 
-import java.time.LocalDateTime;
-
-import org.joda.time.DateTime;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
-import com.google.gson.Gson;
-
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import org.joda.time.DateTime;
 
 /**
  * @author smillar
  *
  */
-@GeneratePojoBuilder(withFactoryMethod="create", withSetterNamePattern="*")
 public final class Feed extends ModelBase implements Comparable<Feed> {
 	
 	
