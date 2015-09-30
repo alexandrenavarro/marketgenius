@@ -1,5 +1,7 @@
 package com.github.marketgenius.model;
 
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.joda.time.DateTime;
 
 import java.util.UUID;
@@ -26,6 +28,7 @@ public class ModelBase {
         this.type = type;
     }
 
+    @JsonProperty("@timestamp")
     public DateTime getTimestamp() {
         return timestamp;
     }

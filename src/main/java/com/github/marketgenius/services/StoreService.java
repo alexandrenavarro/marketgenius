@@ -12,6 +12,7 @@ import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class StoreService {
 
     }
 
-    private  <T extends ModelBase> void storeMultiple(List<T> items) {
+    public  <T extends ModelBase> void storeMultiple(List<T> items) {
         BulkRequestBuilder bulkRequest = client.prepareBulk();
 
         for (T item : items) {

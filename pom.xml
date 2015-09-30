@@ -20,6 +20,14 @@
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-parent</artifactId>
@@ -45,13 +53,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
-			<version>${springBootVersion}</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
 			<version>${springBootVersion}</version>
 		</dependency>
 
@@ -118,12 +119,18 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<version>${springBootVersion}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-joda</artifactId>
-			<version>2.4.0</version>
+			<version>2.3.3</version>
 		</dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-joda</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+
+
 
 	</dependencies>
 	<build>

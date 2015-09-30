@@ -7,17 +7,17 @@ import org.joda.time.DateTime;
  */
 public class MarketBestPrice extends ModelBase{
     private String marketCode;
-    private DateTime timestamp;
-    private String productCode;
-    private String type;
+    private String side;
+    private String product;
+    private double price;
     private int order;
 
-    public MarketBestPrice(String marketCode, DateTime timestamp, String productCode, String type, int order) {
+    public MarketBestPrice(String marketCode, DateTime timestamp, String product, String side, double price, int order) {
         super("marketBestPrice",timestamp);
         this.marketCode = marketCode;
-        this.timestamp = timestamp;
-        this.productCode = productCode;
-        this.type = type;
+        this.side = side;
+        this.product = product;
+        this.price = price;
         this.order = order;
     }
 
@@ -29,20 +29,12 @@ public class MarketBestPrice extends ModelBase{
         this.marketCode = marketCode;
     }
 
-    public DateTime getTimestamp() {
-        return timestamp;
+    public String getSide() {
+        return side;
     }
 
-    public void setTimestamp(DateTime timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getProductCode() {
-        return productCode;
-    }
-
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
+    public void setSide(String side) {
+        this.side = side;
     }
 
     public int getOrder() {
@@ -53,11 +45,19 @@ public class MarketBestPrice extends ModelBase{
         this.order = order;
     }
 
-    public String getType() {
-        return type;
+    public String getProduct() {
+        return product;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setProduct(String product) {
+        this.product = product;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
